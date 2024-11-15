@@ -56,7 +56,10 @@ Both are pre-configured to communicate, with sample code demonstrating connectio
   ```bash
   docker-compose up --build
   ```
-  
+- **Build and start (detached)**:
+  ```bash
+  docker-compose up --build -d
+  ```
 - **Restart the frontend**:
   ```bash
   docker-compose restart frontend
