@@ -63,17 +63,17 @@ jobs:
           path: |
             frontend/.next/cache
           # Adjust the key to look for the lock file inside `frontend`
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/frontend/package-lock.json', '**/frontend/yarn.lock') }}-${{ hashFiles('**/frontend/**/*.[jt]s', '**/frontend/**/*.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('frontend/package-lock.json', 'frontend/yarn.lock') }}-${{ hashFiles('frontend/**/*.[jt]s', 'frontend/**/*.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/frontend/package-lock.json', '**/frontend/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('frontend/package-lock.json', 'frontend/yarn.lock') }}-
       
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-        working-directory: ./frontend  # Specify the frontend directory
+        working-directory: ./frontend  # Specify the frontend directory explicitly
       
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        working-directory: ./frontend  # Specify the frontend directory
+        working-directory: ./frontend  # Specify the frontend directory explicitly
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
