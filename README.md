@@ -7,6 +7,7 @@ This template provides a quick start for your next hackathon project! It include
 
 Both are pre-configured to communicate, with sample code demonstrating connection. The frontend is designed for easy deployment on **GitHub Pages**, while the backend will need to be hosted separately.
 
+
 ---
 
 ## Prerequisites
