@@ -1,0 +1,27 @@
+# version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"  # Host port : Container port
+    volumes: # REMOVE IF PROBLEM
+      - ./frontend:/app  # Mount the frontend code for live updates
+      - /app/node_modules  # Separate volume for node_modules
+    # depends_on:
+      # - backend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000  # Use the Docker service name as the URL
+    command: npm run dev  # Run Next.js in dev mode for hot-reloading
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app  # Mount the backend code
+    environment:
+      - FLASK_ENV=development
+    command: flask run --host=0.0.0.0 --port=5000  # Enable Flask dev server with hot reload
