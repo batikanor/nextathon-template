@@ -10,6 +10,10 @@ Both are pre-configured to communicate, with sample code demonstrating connectio
 
 ---
 
+## First To Do After Forking 
+- Adjust `next.config.mjs` for the new repository name
+
+
 ## Prerequisites
 - Make sure you have Docker installed and running.
 
